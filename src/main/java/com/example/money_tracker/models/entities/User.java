@@ -1,5 +1,6 @@
 package com.example.money_tracker.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -18,23 +19,15 @@ public class User {
     Long id;
     String name;
     String surname;
-    String login;
-    String password;
-    String keyword;
+    @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
     Date addDate;
-    Date updateDate;
+
 
     @PrePersist
     protected void onCreate() {
     addDate=new Date();
-    updateDate=new Date();
     }
 
-
-    @PreUpdate
-    protected void OnUpdate(){
-        updateDate=new Date();
-    }
 
 
 

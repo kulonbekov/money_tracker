@@ -15,12 +15,7 @@ import java.util.Date;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BillDto {
     Long id;
-    String cardName;
-    Type typeOfCard;
-    int sum;
-    Currency currency;
+    String billName;
     boolean active;
-    Date addDate;
-    Date updateDate;
 
 }

@@ -1,21 +1,21 @@
 package com.example.money_tracker.models.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.example.money_tracker.models.enums.Role;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
-import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserDto {
-    Long id;
-    String name;
-    String surname;
-    @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
-    Date addDate;
+public class AccountDto {
 
+    Long id;
+    String email;
+    String password;
+    UserDto userDto;
+    List<Role> roles;
 }

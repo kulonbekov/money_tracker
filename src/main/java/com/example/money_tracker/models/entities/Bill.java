@@ -18,27 +18,12 @@ public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String cardName;
-    Type typeOfCard;
-    int sum;
-    Currency currency;
+    String billName;
     boolean active;
-    Date addDate;
-    Date updateDate;
-
-
 
     @PrePersist
     protected void onCreate() {
-        addDate=new Date();
-        updateDate=new Date();
-        active=true;
-    }
-
-
-    @PreUpdate
-    protected void OnUpdate(){
-        updateDate=new Date();
+        active = true;
     }
 
 }

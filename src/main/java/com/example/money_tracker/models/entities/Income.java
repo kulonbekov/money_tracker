@@ -1,6 +1,8 @@
 package com.example.money_tracker.models.entities;
 
 import com.example.money_tracker.models.enums.Currency;
+import com.example.money_tracker.models.enums.TypeOfIncome;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -17,26 +19,24 @@ public class Income {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String designation;
-    int sum;
-    Currency currency;
+    @Enumerated(EnumType.STRING)
+    TypeOfIncome typeOfIncome;
+    double sum;
     @ManyToOne
     @JoinColumn(name = "bill_id")
     Bill bill;
+    @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
     Date addDate;
-    Date updateDate;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    User user;
+
 
 
     @PrePersist
     protected void onCreate() {
         addDate=new Date();
-        updateDate=new Date();
     }
 
-
-    @PreUpdate
-    protected void OnUpdate(){
-        updateDate=new Date();
-    }
 
 }
