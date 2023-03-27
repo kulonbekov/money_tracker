@@ -19,6 +19,7 @@ public class User {
     Long id;
     String name;
     String surname;
+    String keyword;
     @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
     Date addDate;
 
